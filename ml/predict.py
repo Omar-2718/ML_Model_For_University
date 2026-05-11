@@ -7,18 +7,18 @@ from pathlib import Path
 def main():
     base_dir = Path(__file__).resolve().parent
     artifact_dir = base_dir / "model_artifacts"
-
+    
     if len(sys.argv) > 1 and sys.argv[1] == "--features":
         with open(artifact_dir / "feature_schema.json") as f:
             feature_schema = json.load(f)
         print(json.dumps({"features": feature_schema["features"]}))
         return
 
-    age = float(sys.argv[1])
-    gender = sys.argv[2]
-    education_level = sys.argv[3]
-    job_title = sys.argv[4]
-    years_of_experience = float(sys.argv[5])
+    age = float(sys.argv[1].strip('"'))
+    gender = sys.argv[2].strip('"')
+    education_level = sys.argv[3].strip('"')
+    job_title = sys.argv[4].strip('"')
+    years_of_experience = float(sys.argv[5].strip('"'))
 
     model = joblib.load(artifact_dir / "salary_model.joblib")
     scaler = joblib.load(artifact_dir / "robust_scaler.joblib")
