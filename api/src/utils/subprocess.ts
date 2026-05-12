@@ -7,14 +7,11 @@ const execFileAsync = promisify(execFile);
 const predictionScriptPath = path.resolve(process.cwd(), '../ml/predict.py');
 
 async function runPredictionScript(args: string[]) {
-  console.log('hello');
   try {
-    console.log(...args);
     const { stdout } = await execFileAsync('python', [
       predictionScriptPath,
       ...args,
     ]);
-    console.log('bye');
     return stdout;
   } catch (err) {
     console.error('Error running prediction script:', err);
