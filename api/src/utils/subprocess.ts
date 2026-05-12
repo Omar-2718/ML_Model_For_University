@@ -4,7 +4,7 @@ import { promisify } from 'node:util';
 import type { predictionRequest } from './validation';
 
 const execFileAsync = promisify(execFile);
-const predictionScriptPath = path.resolve(process.cwd(), '../ml/predict.py');
+const predictionScriptPath = path.resolve(__dirname, '../ml/predict.py');
 
 async function runPredictionScript(args: string[]) {
   try {
