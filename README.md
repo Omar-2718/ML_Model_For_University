@@ -5,26 +5,6 @@ This project has two parts:
 1. Python ML scripts in `ml/` (train + predict)
 2. Node/Express API in `api/` that calls Python using subprocess
 
-## Current Structure
-
-```text
-ML Uni/
-  api/
-    src/
-      app.ts
-      server.ts
-      controllers/predict.controller.ts
-      routes/predict.ts
-      utils/subprocess.ts
-      utils/validation.ts
-  ml/
-    data/Salary_Data[1].csv
-    model_artifacts/
-    train.py
-    predict.py
-    requirements.txt
-  README.md
-```
 
 ## Prerequisites
 
