@@ -1,8 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import predictRoute from './routes/predict';
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'dev') app.use(morgan('dev'));
