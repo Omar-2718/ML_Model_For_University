@@ -4,14 +4,18 @@ WORKDIR /app
 
 # Install Python for ML scripts
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 python3-pip python-is-python3 \
+    && apt-get install -y --no-install-recommends python3 python3-pip python3-venv python-is-python3 \
     && rm -rf /var/lib/apt/lists/*
+
+# Create isolated Python environment (required on Debian bookworm / PEP 668)
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy project
 COPY . .
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r ml/requirements.txt
+# Install Python dependencies into venv
+RUN pip install --no-cache-dir -r ml/requirements.txt
 
 # Install Node dependencies
 RUN npm --prefix api install
