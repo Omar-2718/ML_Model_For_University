@@ -9,8 +9,12 @@ export const predict = async (
   req: Request<{}, {}, predictionRequest>,
   res: Response,
 ) => {
+  // TODO: add error handling
   try {
     let body = z.parse(predictionRequestSchema, req.body);
+    if (body.yearsOfExperience > body.age - 14) {
+      return res.status(400).end('Invalid request body');
+    }
     const result = await predictSalary(body);
     // console.log(result);
     res.status(200).json(result);
