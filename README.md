@@ -14,17 +14,16 @@ This project has two parts:
 
 ## 1) Setup Python Environment
 
-From project root:
+From project root (run these from the repository root):
 
 ```powershell
-cd "D:\Back_End\Projects\ML Uni"
 python -m venv ml/.venv
 ```
 
 Activate venv (PowerShell):
 
 ```powershell
-(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "D:\Back_End\Projects\ML Uni\ml\.venv\Scripts\Activate.ps1")
+(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& ".\ml\.venv\Scripts\Activate.ps1")
 ```
 
 Install Python dependencies:
@@ -142,7 +141,7 @@ From project root:
 ```powershell
 # Python setup
 python -m venv ml/.venv
-(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "D:\Back_End\Projects\ML Uni\ml\.venv\Scripts\Activate.ps1")
+(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& ".\ml\.venv\Scripts\Activate.ps1")
 pip install -r ml/requirements.txt
 
 # Train model
